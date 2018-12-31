@@ -9,7 +9,7 @@ import gc
 import os, sys
 import chardet
 import copy
-from threading import *
+from threading import Thread
 import time
 
 
@@ -64,7 +64,6 @@ class MyThread(Thread):
         super().__init__()
 
     def run(self):
-
         while True:
             if self.is_auto is True:
                 while self.ifdo:
@@ -77,6 +76,7 @@ class MyThread(Thread):
                 if self.auto_choise:
                     self.auto()
                     self.is_auto = -1
+            time.sleep(0.1)
 
     def stop(self):
         if self.is_auto:
@@ -139,7 +139,6 @@ class MyThread(Thread):
 
         scrolly.update()
         self.auto_choise = False
-
 
 
 flag = False
