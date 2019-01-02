@@ -79,6 +79,10 @@ class MyThread(Thread):
             time.sleep(0.1)
 
     def stop(self):
+        """
+        手动抽奖时点击停止按钮时的操作
+        :return:
+        """
         if self.is_auto:
             self.ifdo = False
             button2["text"] = '手动抽奖'
@@ -95,6 +99,10 @@ class MyThread(Thread):
             scrolly.update()
 
     def go(self):
+        """
+        手动开始时的停止标记
+        :return:
+        """
         if self.is_auto == -1:
             self.is_auto = True
             self.ifdo = True
@@ -102,6 +110,10 @@ class MyThread(Thread):
             button2["text"] = '点击停止'
 
     def auto_start(self):
+        """
+        自动开始设置更改标记
+        :return:
+        """
         if self.is_auto == -1:
             self.is_auto = False
             self.auto_choise = True
@@ -111,6 +123,10 @@ class MyThread(Thread):
             ft1 = tkFont.Font(family='Fixdsys', size=80, weight=tkFont.BOLD)
 
     def auto(self):
+        """
+        自动开始时执行的操作
+        :return:
+        """
         copy_names = copy.deepcopy(names)
         ren = int(v.get())
         for i in range(ren):
